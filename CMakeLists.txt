@@ -1,30 +1,33 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 
-project(DistributedSys)
+# Set the project name and version
+project(GrpcProtobufTest VERSION 1.0 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
-
-#add_subdirectory(src)
-
-# Add include directories
-include_directories(${CMAKE_SOURCE_DIR}/include)
-
-# Link necessary libraries (if any, for example, SDL)
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_PREFIX_PATH "/usr/local/opt/protobuf;/usr/local/opt/grpc")
 
 
-# Add the executable
-add_executable(DistributedSys src/client.cpp src/server.cpp)
 
-enable_testing()
+# Find Protobuf package
+find_package(Protobuf REQUIRED)
+include_directories(${Protobuf_INCLUDE_DIRS})
 
-# Specify the path to the Google Test libraries
-#link_directories(/usr/local/opt/googletest/lib)
+# Find gRPC package
+find_package(gRPC REQUIRED)
+include_directories(${gRPC_INCLUDE_DIRS})
 
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
+# Source files
+set(PROTO_FILES src/service.proto)
+set(SRC_FILES src/client.cpp)
 
-add_executable(runTests tests/test1.cpp src/client.cpp src/server.cpp)
-# target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
-target_link_libraries(runTests GTest::GTest GTest::Main pthread)
+# Generate C++ source files from proto files
+protobuf_generate_cpp(PROTO_SRC PROTO_HDRS ${PROTO_FILES})
+grpc_generate_cpp(GRPC_SRC GRPC_HDRS ${PROTO_FILES})
 
-add_test(NAME runTests COMMAND runTests)
+# Add executable target
+add_executable(GrpcProtobufTest ${SRC_FILES} ${PROTO_SRC} ${GRPC_SRC})
+
+# Link libraries
+target_link_libraries(GrpcProtobufTest ${Protobuf_LIBRARIES} gRPC::grpc++ gRPC::grpc)
