@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package service;
+service Dservice {
+    //Upload file from Client side to the Server side
+    rpc upload (stream FileChunk) returns (Response){}
+}
+
+message FileChunk {
+    string name = 1;
+    bytes data = 2;
+
+}
+message Response {
+    string message = 1;
+}
