@@ -4,6 +4,12 @@ package service;
 service Dservice {
     //Upload file from Client side to the Server side
     rpc upload (stream FileChunk) returns (Response){}
+    //Download file from Server side to Client side
+    rpc download (Request) returns (stream FileChunk){}
+    //list all files from Sever side
+    rpc list (Empty) returns (Files){}
+    //delete the selected file
+    rpc deleteFile (Request) returns (Response) {}
 }
 
 message FileChunk {
@@ -13,4 +19,15 @@ message FileChunk {
 }
 message Response {
     string message = 1;
+}
+message Request {
+    string name = 1;
+}
+message Empty {
+}
+message Files {
+    repeated FileStatus file = 1;
+}
+message FileStatus{
+    string filename = 1;
 }

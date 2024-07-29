@@ -10,10 +10,12 @@ class ServerHelper{
 public:
     ServerHelper();
     ~ServerHelper();
-    void Run();
+    void Run(string path);
 
     void setAddress(string address);
+
 private:
     unique_ptr<grpc::Server> server;
     string server_address;
+
 };

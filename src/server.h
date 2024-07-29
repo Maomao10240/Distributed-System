@@ -8,5 +8,5 @@ protected:
 public:
     Server();
     ~Server();
-    void RunServer(string server_address);
+    void RunServer(string path, string server_address);
 };

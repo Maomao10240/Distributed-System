@@ -19,6 +19,10 @@ void Client::Process(const string & command, const string & filename, const stri
         this->client_helper.upload(filename);
     }else if(command == "download"){
         this->client_helper.download(filename);
+    }else if(command == "list"){
+        this->client_helper.list();
+    }else if(command == "deletefile"){
+        this->client_helper.deleteFile(filename);
     }
 
 }
@@ -29,7 +33,7 @@ int main(int argc, char** argv){
 
     Client client(channel);
     string filepath = "clientFile/";
-    string filename = "1.jpg";
+    string filename = "1.txt";
     string path = "client_path";
     string server_address = "0.0.0.0:50051";
     string command = "";
@@ -58,6 +62,9 @@ int main(int argc, char** argv){
     unordered_set<string> commands;
     commands.insert("upload");
     commands.insert("download"); 
+    commands.insert("list");
+    commands.insert("deletefile");
+
 
     if(optind < argc){
         command = argv[optind+1];
