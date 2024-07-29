@@ -13,14 +13,14 @@ Server::Server(){}
 
 Server::~Server(){}
 
-void Server::RunServer(string server_address){
+void Server::RunServer(string path, string server_address){
     this->server_helper.setAddress(server_address);
-    this->server_helper.Run();
+    this->server_helper.Run(path);
 
 }
 int main(int argc, char** argv){
     Server server;
-    string path = "client_path";
+    string path = "serverFile/";;
     string server_address = "0.0.0.0:50051";
     string command = "";
     int opt;
@@ -39,6 +39,6 @@ int main(int argc, char** argv){
     }
     cout << "Path: " << path << endl;
     cout << "Server Address: " << server_address << endl;
-    server.RunServer(server_address);
+    server.RunServer(path, server_address);
     return 0;
 }

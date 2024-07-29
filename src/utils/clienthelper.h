@@ -9,7 +9,9 @@ public:
     ClientHelper(const shared_ptr<Channel> channel);
     ~ClientHelper();
     string upload(const string & filename);
-    void download(const string & filename);
+    string download(const string & filename);
+    string list();
+    string deleteFile(const string & filename);
     void setPath(string path);
 
 protected:
