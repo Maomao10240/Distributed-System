@@ -1,6 +1,6 @@
 name: CI
 
-on: 
+on:
   push:
     branches:
       - main
@@ -12,31 +12,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Set up C++ environment
+        uses: actions/setup-cpp@v2
+        with:
+          compiler: "gcc"
+          cache: "yes"
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y protobuf-compiler libprotobuf-dev libgrpc-dev grpc-proto
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ libprotobuf-dev protobuf-compiler libgtest-dev
 
-    - name: Install Google Test
-      run: |
-        sudo apt-get install -y libgtest-dev
-        cd /usr/src/googletest
-        sudo cmake CMakeLists.txt
-        sudo make
-        sudo cp lib/libgtest*.a /usr/lib
-      
+      - name: Install Google Test
+        run: |
+          sudo apt-get install -y libgtest-dev
+          cd /usr/src/googletest
+          sudo cmake CMakeLists.txt
+          sudo make
+          sudo cp lib/libgtest*.a /usr/lib
 
-    - name: Build project
-      run: |
-        mkdir build
-        cd build
-        cmake ..
-        make
+      - name: Build project
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
 
-    - name: Run tests
-      run: |
-        cd build
-        ctest
+      - name: Run tests
+        run: |
+          cd build
+          ctest --output-on-failure
