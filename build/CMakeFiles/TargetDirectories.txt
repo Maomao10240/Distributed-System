@@ -1,6 +1,0 @@
-/Users/maocong/Documents/c++/Distributed-System/build/CMakeFiles/client.dir
-/Users/maocong/Documents/c++/Distributed-System/build/CMakeFiles/server.dir
-/Users/maocong/Documents/c++/Distributed-System/build/CMakeFiles/runtest.dir
-/Users/maocong/Documents/c++/Distributed-System/build/CMakeFiles/test.dir
-/Users/maocong/Documents/c++/Distributed-System/build/CMakeFiles/edit_cache.dir
-/Users/maocong/Documents/c++/Distributed-System/build/CMakeFiles/rebuild_cache.dir
