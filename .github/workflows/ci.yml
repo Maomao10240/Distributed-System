@@ -14,11 +14,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Set up C++ environment
-        uses: actions/setup-cpp@v2
-        with:
-          compiler: "gcc"
-          cache: "yes"
+      # - name: Set up C++ environment
+      #   uses: actions/setup-cpp@v2
+      #   with:
+      #     compiler: "gcc"
+      #     cache: "yes"
 
       - name: Install dependencies
         run: |
