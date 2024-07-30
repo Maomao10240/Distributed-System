@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/Users/maocong/Documents/c++/Distributed-System/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/opt/miniconda3/include -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -mmacosx-version-min=11.0 -o CMakeFiles/client.dir/src/client.cpp.o -c /Users/maocong/Documents/c++/Distributed-System/src/client.cpp",
+  "file": "/Users/maocong/Documents/c++/Distributed-System/src/client.cpp",
+  "output": "CMakeFiles/client.dir/src/client.cpp.o"
+},
+{
+  "directory": "/Users/maocong/Documents/c++/Distributed-System/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/opt/miniconda3/include -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -mmacosx-version-min=11.0 -o CMakeFiles/client.dir/src/utils/clienthelper.cpp.o -c /Users/maocong/Documents/c++/Distributed-System/src/utils/clienthelper.cpp",
+  "file": "/Users/maocong/Documents/c++/Distributed-System/src/utils/clienthelper.cpp",
+  "output": "CMakeFiles/client.dir/src/utils/clienthelper.cpp.o"
+},
+{
+  "directory": "/Users/maocong/Documents/c++/Distributed-System/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/opt/miniconda3/include -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -mmacosx-version-min=11.0 -o CMakeFiles/client.dir/src/protoSrc/service.pb.cc.o -c /Users/maocong/Documents/c++/Distributed-System/src/protoSrc/service.pb.cc",
+  "file": "/Users/maocong/Documents/c++/Distributed-System/src/protoSrc/service.pb.cc",
+  "output": "CMakeFiles/client.dir/src/protoSrc/service.pb.cc.o"
+},
+{
+  "directory": "/Users/maocong/Documents/c++/Distributed-System/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/opt/miniconda3/include -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -mmacosx-version-min=11.0 -o CMakeFiles/client.dir/src/protoSrc/service.grpc.pb.cc.o -c /Users/maocong/Documents/c++/Distributed-System/src/protoSrc/service.grpc.pb.cc",
+  "file": "/Users/maocong/Documents/c++/Distributed-System/src/protoSrc/service.grpc.pb.cc",
+  "output": "CMakeFiles/client.dir/src/protoSrc/service.grpc.pb.cc.o"
+},
+{
+  "directory": "/Users/maocong/Documents/c++/Distributed-System/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/opt/miniconda3/include -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -mmacosx-version-min=11.0 -o CMakeFiles/server.dir/src/server.cpp.o -c /Users/maocong/Documents/c++/Distributed-System/src/server.cpp",
+  "file": "/Users/maocong/Documents/c++/Distributed-System/src/server.cpp",
+  "output": "CMakeFiles/server.dir/src/server.cpp.o"
+},
+{
+  "directory": "/Users/maocong/Documents/c++/Distributed-System/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/opt/miniconda3/include -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -mmacosx-version-min=11.0 -o CMakeFiles/server.dir/src/utils/serverhelper.cpp.o -c /Users/maocong/Documents/c++/Distributed-System/src/utils/serverhelper.cpp",
+  "file": "/Users/maocong/Documents/c++/Distributed-System/src/utils/serverhelper.cpp",
+  "output": "CMakeFiles/server.dir/src/utils/serverhelper.cpp.o"
+},
+{
+  "directory": "/Users/maocong/Documents/c++/Distributed-System/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/opt/miniconda3/include -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -mmacosx-version-min=11.0 -o CMakeFiles/server.dir/src/protoSrc/service.pb.cc.o -c /Users/maocong/Documents/c++/Distributed-System/src/protoSrc/service.pb.cc",
+  "file": "/Users/maocong/Documents/c++/Distributed-System/src/protoSrc/service.pb.cc",
+  "output": "CMakeFiles/server.dir/src/protoSrc/service.pb.cc.o"
+},
+{
+  "directory": "/Users/maocong/Documents/c++/Distributed-System/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/opt/miniconda3/include -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -mmacosx-version-min=11.0 -o CMakeFiles/server.dir/src/protoSrc/service.grpc.pb.cc.o -c /Users/maocong/Documents/c++/Distributed-System/src/protoSrc/service.grpc.pb.cc",
+  "file": "/Users/maocong/Documents/c++/Distributed-System/src/protoSrc/service.grpc.pb.cc",
+  "output": "CMakeFiles/server.dir/src/protoSrc/service.grpc.pb.cc.o"
+},
+{
+  "directory": "/Users/maocong/Documents/c++/Distributed-System/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++ -I/opt/miniconda3/include -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -mmacosx-version-min=11.0 -o CMakeFiles/runtest.dir/tests/test1.cpp.o -c /Users/maocong/Documents/c++/Distributed-System/tests/test1.cpp",
+  "file": "/Users/maocong/Documents/c++/Distributed-System/tests/test1.cpp",
+  "output": "CMakeFiles/runtest.dir/tests/test1.cpp.o"
+}
+]
