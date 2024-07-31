@@ -27,16 +27,18 @@ jobs:
      #     sudo apt-get install -ylibprotobuf-dev protobuf-compiler
 
      # Install Protocol Buffers
-      - name: Install Protocol Buffers 3.21.12
+      - name: Install Protocol Buffers 27
         run: | 
-          curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v27.1/protobuf-27.1.tar.gz
-          tar -xzf protobuf-27.1.tar.gz
-          cd protobuf-27.1
-          ./autogen.sh
-          ./configure
+          sudo apt-get install autoconf automake
+          git clone https://github.com/google/protobuf.git
+          cd protobuf
+          git submodule update --init --recursive
+          mkdir build
+          cd build
+          cmake ..
           make
           sudo make install
-          sudo ldconfig  # Update the library cache
+          
 
       - name: Install Google Test
         run: |
