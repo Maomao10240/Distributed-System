@@ -17,7 +17,7 @@ jobs:
       - name: Set up C++ environment
         uses: aminya/setup-cpp@v1
         with:
-          compiler: "gcc"
+          gcc: '17'
           cache: "yes"
 
       - name: Install dependencies
