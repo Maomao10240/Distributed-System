@@ -41,9 +41,10 @@ jobs:
           curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v27.1/protobuf-27.1.tar.gz
           tar -xzf protobuf-27.1.tar.gz
           cd protobuf-27.1
+          git submodule update --init --recursive
           mkdir build
           cd build
-          cmake ..
+          cmake -Dprotobuf_BUILD_TESTS=OFF ..
           make
           sudo make install
           
