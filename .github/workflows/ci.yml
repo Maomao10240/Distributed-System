@@ -30,8 +30,8 @@ jobs:
       - name: Install Protocol Buffers 3.21.12
         run: | 
           curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v27.1/protobuf-27.1.tar.gz
-          tar -xzf protobuf-all-27.1.0.tar.gz
-          cd protobuf-27.1.0
+          tar -xzf protobuf-27.1.tar.gz
+          cd protobuf-27.1
           ./autogen.sh
           ./configure
           make
