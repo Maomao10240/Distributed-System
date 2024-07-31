@@ -36,10 +36,10 @@ jobs:
           sudo make install
           sudo ldconfig
 
-      - name: Verify Protobuf Installation
-        run: |
-          protoc --version
-          ls /usr/include/google/protobuf
+      # - name: Verify Protobuf Installation
+      #   run: |
+      #     protoc --version
+      #     ls /usr/include/google/protobuf
 
       - name: Install Google Test
         run: |
