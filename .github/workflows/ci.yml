@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Set up C++ environment
-        uses: actions/setup-cpp@v2
+        uses: aminya/setup-cpp@v1
         with:
           compiler: "gcc"
           cache: "yes"
