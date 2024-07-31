@@ -23,7 +23,18 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake g++ pkg-config libprotobuf-dev protobuf-compiler libgtest-dev libgrpc++-dev libgrpc-dev
+          sudo apt-get install -y cmake g++ pkg-config libgtest-dev libgrpc++-dev libgrpc-dev autoconf automake libtool curl make unzip
+
+      - name: Install specific version of Protobuf (v25.1)
+        run: |
+          curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v25.1/protobuf-all-25.1.tar.gz
+          tar -xvf protobuf-all-25.1.tar.gz
+          cd protobuf-25.1
+          ./autogen.sh
+          ./configure
+          make -j$(nproc)
+          sudo make install
+          sudo ldconfig  # Refresh shared library cache
 
       - name: Verify Protobuf Installation
         run: |
@@ -32,7 +43,7 @@ jobs:
 
       - name: Install Google Test
         run: |
-          sudo apt-get install -y libgtest-dev
+          sudo apt-get install -y libgtest-dev  
           cd /usr/src/googletest
           sudo cmake CMakeLists.txt
           sudo make
