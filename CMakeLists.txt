@@ -8,8 +8,23 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Specify the path to Protobuf and gRPC includes and libraries
-include_directories(/opt/miniconda3/include)
-link_directories(/opt/miniconda3/lib)
+# include_directories(/usr/local/include)
+# link_directories(/usr/local/lib)
+
+# Find pkg-config
+find_package(PkgConfig REQUIRED)
+
+# Use pkg-config to find gRPC and Protobuf
+pkg_check_modules(GRPC REQUIRED grpc++ grpc)
+pkg_check_modules(PROTOBUF REQUIRED protobuf)
+
+# Include directories
+include_directories(${GRPC_INCLUDE_DIRS})
+include_directories(${PROTOBUF_INCLUDE_DIRS})
+
+# Link directories
+link_directories(${GRPC_LIBRARY_DIRS})
+link_directories(${PROTOBUF_LIBRARY_DIRS})
 
 # Specify the source files
 set(SOURCE_FILES_CLIENT
@@ -31,8 +46,10 @@ add_executable(client ${SOURCE_FILES_CLIENT})
 add_executable(server ${SOURCE_FILES_SERVER})
 
 # Link libraries
-target_link_libraries(client protobuf grpc++ grpc pthread)
-target_link_libraries(server protobuf grpc++ grpc pthread)
+#target_link_libraries(client protobuf grpc++ grpc pthread)
+#target_link_libraries(server protobuf grpc++ grpc pthread)
+target_link_libraries(client ${GRPC_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread)
+target_link_libraries(server ${GRPC_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread)
 
 
 # Specify the path to Google Test

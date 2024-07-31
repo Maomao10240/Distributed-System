@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake g++ libprotobuf-dev protobuf-compiler libgtest-dev
+          sudo apt-get install -y cmake g++ pkg-config libprotobuf-dev protobuf-compiler libgtest-dev
 
       - name: Install Google Test
         run: |
@@ -37,10 +37,10 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake ..
+          cmake -DCMAKE_PREFIX_PATH=$(pkg-config --variable=pc_path pkg-config) ..
           make
 
       - name: Run tests
         run: |
           cd build
-          ctest --output-on-failure
+          ctest
