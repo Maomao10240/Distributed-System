@@ -27,14 +27,14 @@ jobs:
 
       - name: Install specific version of Protobuf (v25.1)
         run: |
-          curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v25.1/protobuf-all-25.1.tar.gz
-          tar -xvf protobuf-all-25.1.tar.gz
-          cd protobuf-25.1
+          curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.17.3/protobuf-all-3.17.3.tar.gz
+          tar -xvf protobuf-all-3.17.3.tar.gz
+          cd protobuf-3.17.3
           ./autogen.sh
           ./configure
           make -j$(nproc)
           sudo make install
-          sudo ldconfig  # Refresh shared library cache
+          sudo ldconfig
 
       - name: Verify Protobuf Installation
         run: |
