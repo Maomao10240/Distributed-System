@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up C++ environment
         uses: aminya/setup-cpp@v1
         with:
@@ -23,7 +23,12 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake g++ pkg-config libprotobuf-dev protobuf-compiler libgtest-dev
+          sudo apt-get install -y cmake g++ pkg-config libprotobuf-dev protobuf-compiler libgtest-dev libgrpc++-dev libgrpc-dev
+
+      - name: Verify Protobuf Installation
+        run: |
+          protoc --version
+          ls /usr/include/google/protobuf
 
       - name: Install Google Test
         run: |
@@ -37,7 +42,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DCMAKE_PREFIX_PATH=$(pkg-config --variable=pc_path pkg-config) ..
+          cmake ..
           make
 
       - name: Run tests
