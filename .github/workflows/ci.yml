@@ -30,8 +30,9 @@ jobs:
       - name: Install Protocol Buffers 27
         run: | 
           sudo apt-get install autoconf automake
-          git clone https://github.com/google/protobuf.git
-          cd protobuf
+          curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v27.1/protobuf-27.1.tar.gz
+          tar -xzf protobuf-27.1.tar.gz
+          cd protobuf-27.1
           git submodule update --init --recursive
           mkdir build
           cd build
