@@ -28,6 +28,7 @@ link_directories(${PROTOBUF_LIBRARY_DIRS})
 
 # Specify the source files
 set(SOURCE_FILES_CLIENT
+    src/mainClient.cpp
     src/client.cpp
     src/utils/clienthelper.cpp
     src/protoSrc/service.pb.cc
@@ -35,6 +36,7 @@ set(SOURCE_FILES_CLIENT
 )
 
 set(SOURCE_FILES_SERVER
+    src/mainServer.cpp
     src/server.cpp
     src/utils/serverhelper.cpp
     src/protoSrc/service.pb.cc
@@ -58,16 +60,19 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 set(TEST_FILES
     tests/test1.cpp
-    # src/utils/serverhelper.cpp
-    # src/protoSrc/service.pb.cc
-    # src/protoSrc/service.grpc.pb.cc
+    src/client.cpp
+    src/server.cpp
+    src/utils/clienthelper.cpp
+    src/utils/serverhelper.cpp
+    src/protoSrc/service.pb.cc
+    src/protoSrc/service.grpc.pb.cc
 )
 
 # Add executable target
 add_executable(runtest ${TEST_FILES})
 
 # Link libraries
-target_link_libraries(runtest GTest::gtest GTest::gtest_main pthread)
+target_link_libraries(runtest GTest::gtest GTest::gtest_main ${GRPC_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread)
 
 # target_link_libraries(runtest ${GTEST_LIBRARIES} pthread)
 

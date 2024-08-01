@@ -40,8 +40,9 @@ string ClientHelper::upload(const string & filename){
     unique_ptr< ::grpc::ClientWriter< ::service::FileChunk>> resp = stub_->upload(&context, &response);
     string filenm = this->path_ + filename;
     fstream file = fstream(filenm, ios::in|ios::binary);
+    cerr<<"File " <<filenm << "start"<<endl;
     if(!file){
-        cerr<<"File could not be opened"<<endl;
+        cerr<<"File " <<filenm << " could not be opened"<<endl;
         return "Failed";
     }else{
         cout << "File "<<filenm<<" open successfuly" << endl;

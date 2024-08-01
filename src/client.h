@@ -8,5 +8,5 @@ protected:
 public:
     Client(const shared_ptr<Channel> channel);
     ~Client();
-    void Process(const string & command, const string & filename, const string & filepath);
+    string Process(const string & command, const string & filename, const string & filepath);
 };
